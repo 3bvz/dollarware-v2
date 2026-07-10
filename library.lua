@@ -7211,470 +7211,838 @@ end
         elemClasses.notif = notif
     end
         
- 	-- HOTKEY
-	do
-		local hotkey = {} do
-			hotkey.__index = hotkey
-			setmetatable(hotkey, elemClasses.baseElement)
-
-			hotkey.class = 'hotkey'
-
-			do
-				local instances = {} do
-					local controlFrame = Instance.new('Frame')
-					controlFrame.BackgroundTransparency = 1
-					controlFrame.Name = '#control'
-					controlFrame.Size = UDim2.new(1, 0, 0, 20)
-					controlFrame.Visible = true
-					controlFrame.ZIndex = 34
-
-					instances.controlFrame = controlFrame
-
-					local back = Instance.new('TextButton') do
-						back.BackgroundTransparency = 1
-						back.Name = '#back'
-						back.Size = UDim2.fromScale(1, 1)
-						back.Text = ''
-						back.TextTransparency = 1
-						back.ZIndex = 34
-
-						back.Parent = controlFrame
-
-						local label = Instance.new('TextLabel') do
-							label.BackgroundTransparency = 1
-							label.Font = 'Ubuntu'
-							label.Name = '#label'
-							label.RichText = true
-							label.Size = UDim2.fromScale(1, 1)
-							label.Text = 'button'
-							label.TextColor3 = theme.TextPrimary
-							label.TextSize = 14
-							label.TextStrokeColor3 = theme.TextStroke
-							label.TextStrokeTransparency = 0.8
-							label.TextTransparency = 0
-							label.TextWrapped = false
-							label.TextXAlignment = 'Left'
-							label.TextYAlignment = 'Center'
-							label.Visible = true
-							label.ZIndex = 35
-
-							label.Parent = back
-
-							local padding = Instance.new('UIPadding') do
-								padding.Name = '#padding'
-								padding.PaddingLeft = UDim.new(0, 6)
-
-								padding.Parent = label
-							end
-						end
-
-						local hotkeyLabel = Instance.new('TextLabel') do
-							hotkeyLabel.Active = false
-							hotkeyLabel.AnchorPoint = Vector2.new(1, 0)
-							hotkeyLabel.BackgroundTransparency = 1
-							hotkeyLabel.Font = 'Ubuntu'
-							hotkeyLabel.Name = '#hotkey'
-							hotkeyLabel.Position = UDim2.new(1, -3, 0, 2)
-							hotkeyLabel.Size = UDim2.fromOffset(16, 16)
-							hotkeyLabel.Text = '[None]'
-							hotkeyLabel.TextColor3 = theme.TextDim
-							hotkeyLabel.TextScaled = false
-							hotkeyLabel.TextSize = 14
-							hotkeyLabel.TextStrokeColor3 = theme.TextStroke
-							hotkeyLabel.TextStrokeTransparency = 0.8
-							hotkeyLabel.TextWrapped = false
-							hotkeyLabel.TextXAlignment = 'Right'
-							hotkeyLabel.TextYAlignment = 'Center'
-							hotkeyLabel.Visible = true
-							hotkeyLabel.ZIndex = 35
-
-							hotkeyLabel.Parent = back
-						end
-					end
-
-					-- mode context menu
-					local modeMenu = Instance.new('Frame') do
-						modeMenu.BackgroundColor3 = theme.Window3
-						modeMenu.BorderColor3 = theme.Inset3
-						modeMenu.BorderMode = 'Inset'
-						modeMenu.BorderSizePixel = 1
-						modeMenu.ClipsDescendants = true
-						modeMenu.Name = '#mode-menu'
-						modeMenu.Position = UDim2.new(1, -60, 0, 20)
-						modeMenu.Size = UDim2.fromOffset(56, 0)
-						modeMenu.Visible = false
-						modeMenu.ZIndex = 80
-
-						modeMenu.Parent = controlFrame
-
-						local round = Instance.new('UICorner') do
-							round.CornerRadius = UDim.new(0, rounding and 2 or 0)
-							round.Name = '#round'
-
-							round.Parent = modeMenu
-						end
-
-						local stroke = Instance.new('UIStroke') do
-							stroke.ApplyStrokeMode = 'Border'
-							stroke.Color = theme.Stroke
-							stroke.LineJoinMode = 'Round'
-							stroke.Name = '#stroke'
-							stroke.Thickness = 1
-
-							stroke.Parent = modeMenu
-						end
-
-						local container = Instance.new('Frame') do
-							container.BackgroundTransparency = 1
-							container.Name = '#container'
-							container.Size = UDim2.fromScale(1, 1)
-							container.Visible = true
-							container.ZIndex = 81
-
-							container.Parent = modeMenu
-
-							local layout = Instance.new('UIListLayout') do
-								layout.FillDirection = 'Vertical'
-								layout.HorizontalAlignment = 'Center'
-								layout.Name = '#layout'
-								layout.Padding = UDim.new(0, 1)
-								layout.SortOrder = 'LayoutOrder'
-								layout.VerticalAlignment = 'Top'
-
-								layout.Parent = container
-							end
-
-							local padding = Instance.new('UIPadding') do
-								padding.Name = '#padding'
-								padding.PaddingTop = UDim.new(0, 2)
-								padding.PaddingBottom = UDim.new(0, 2)
-
-								padding.Parent = container
-							end
-						end
-
-						-- mode option template
-						local modeOption = Instance.new('TextButton') do
-							modeOption.AutoButtonColor = false
-							modeOption.BackgroundColor3 = theme.Button1
-							modeOption.BackgroundTransparency = 1
-							modeOption.Font = 'Ubuntu'
-							modeOption.Name = '#mode-option'
-							modeOption.Size = UDim2.new(1, -4, 0, 14)
-							modeOption.Text = 'mode'
-							modeOption.TextColor3 = theme.TextPrimary
-							modeOption.TextSize = 12
-							modeOption.TextStrokeColor3 = theme.TextStroke
-							modeOption.TextStrokeTransparency = 0.8
-							modeOption.TextWrapped = false
-							modeOption.TextXAlignment = 'Center'
-							modeOption.TextYAlignment = 'Center'
-							modeOption.Visible = false
-							modeOption.ZIndex = 82
-
-							modeOption.Parent = container
-
-							local round = Instance.new('UICorner') do
-								round.CornerRadius = UDim.new(0, rounding and 2 or 0)
-								round.Name = '#round'
-
-								round.Parent = modeOption
-							end
-						end
-
-						instances.modeOption = modeOption
-					end
-				end
-				hotkey.instances = instances
-			end
-
-			hotkey.set = nil
-			hotkey.hotkey = nil
-			hotkey.focused = false
-			hotkey.inputCon = nil
-			hotkey.holdCon = nil
-			hotkey.mode = 'Toggle'
-			hotkey.modeMenuOpen = false
-			hotkey.alwaysActive = false
-
-			hotkey.click = function(self)
-				if (self.inputCon) then return end
-
-				local display = self.instances.hotkey
-
-				tween(display, {TextColor3 = theme.Primary}, 0.3, 1)
-				self.inputCon = inputService.InputBegan:Connect(function(io, gpe)
-					local kc = io.KeyCode.Name
-					local inputType = io.UserInputType.Name
-
-					if (inputType == 'MouseButton2' and kc == 'Unknown') then
-						self.hotkey = Enum.UserInputType.MouseButton2
-						self.set = time()
-						display.Text = '[RMB]'
-						self.inputCon:Disconnect()
-						self.inputCon = nil
-
-						if (self.focused) then
-							tween(display, {TextColor3 = theme.TextPrimary}, 0.3, 1)
-						else
-							tween(display, {TextColor3 = theme.TextDim}, 0.3, 1)
-						end
-						return
-					end
-
-					if (kc == 'Unknown' or kc == 'Escape') then
-						self.hotkey = nil
-						display.Text = '[None]'
-						self.inputCon:Disconnect()
-						self.inputCon = nil
-
-						if (self.focused) then
-							tween(display, {TextColor3 = theme.TextPrimary}, 0.3, 1)
-						else
-							tween(display, {TextColor3 = theme.TextDim}, 0.3, 1)
-						end
-					else
-						self.hotkey = io.KeyCode
-						self.set = time()
-						display.Text = ('[%s]'):format(kc)
-						self.inputCon:Disconnect()
-						self.inputCon = nil
-
-						if (self.focused) then
-							tween(display, {TextColor3 = theme.TextPrimary}, 0.3, 1)
-						else
-							tween(display, {TextColor3 = theme.TextDim}, 0.3, 1)
-						end
-					end
-				end)
-
-				return self
-			end
-			hotkey.__hotkeyFunc = hotkey.click
-
-			hotkey.openModeMenu = function(self)
-				if (self.modeMenuOpen) then
-					self:closeModeMenu()
-					return
-				end
-				self.modeMenuOpen = true
-
-				local modeMenu = self.instances.modeMenu
-				modeMenu.Visible = true
-				tween(modeMenu, {Size = UDim2.fromOffset(56, 64)}, 0.2, 1)
-			end
-
-			hotkey.closeModeMenu = function(self)
-				self.modeMenuOpen = false
-
-				local modeMenu = self.instances.modeMenu
-				local menuTween = tween(modeMenu, {Size = UDim2.fromOffset(56, 0)}, 0.2, 1)
-				menuTween.Completed:Connect(function()
-					modeMenu.Visible = false
-				end)
-			end
-
-			hotkey.setMode = function(self, mode)
-				self.mode = mode
-
-				for _, optData in ipairs(self.modeInstances) do
-					if (optData.text == mode) then
-						optData.inst.TextColor3 = theme.Primary
-					else
-						optData.inst.TextColor3 = theme.TextPrimary
-					end
-				end
-
-				if (mode == 'Always') then
-					self.alwaysActive = true
-					local linkedControl = self.linkedControl
-					if (linkedControl and linkedControl.__hotkeyFunc) then
-						task.spawn(linkedControl.__hotkeyFunc, linkedControl)
-					end
-				else
-					self.alwaysActive = false
-				end
-
-				self:fireEvent('onModeChange', mode)
-				return self
-			end
-
-			hotkey.signals = {
-				back = {
-					MouseEnter = function(inst, self)
-						self.focused = true
-						self:showTooltip()
-
-						if (self.inputCon) then
-							tween(self.instances.hotkey, {TextColor3 = theme.Primary}, 0.2, 1)
-						else
-							tween(self.instances.hotkey, {TextColor3 = theme.TextPrimary}, 0.2, 1)
-						end
-					end,
-					MouseLeave = function(inst, self)
-						self.focused = false
-						self:hideTooltip()
-
-						if (self.inputCon) then
-							tween(self.instances.hotkey, {TextColor3 = theme.Primary}, 0.2, 1)
-						else
-							tween(self.instances.hotkey, {TextColor3 = theme.TextDim}, 0.2, 1)
-						end
-					end,
-					MouseButton1Click = function(inst, self)
-						if (self.modeMenuOpen) then
-							self:closeModeMenu()
-						end
-						self:click()
-					end,
-					MouseButton2Click = function(inst, self)
-						self:openModeMenu()
-					end
-				}
-			}
-
-			hotkey.new = function(self)
-				local new = setmetatable({}, self)
-				new.binds = {}
-				new.modeInstances = {}
-
-				local instances = {}
-				instances.controlFrame = self.instances.controlFrame:Clone()
-				instances.back = instances.controlFrame['#back']
-				instances.label = instances.back['#label']
-				instances.hotkey = instances.back['#hotkey']
-				instances.modeMenu = instances.controlFrame['#mode-menu']
-				instances.modeOption = instances.modeMenu['#container']['#mode-option']
-
-				for i, signals in pairs(self.signals) do
-					local inst = instances[i]
-					for signal, func in pairs(signals) do
-						local h = inst[signal]:Connect(function()
-							func(inst, new)
-						end)
-					end
-				end
-
-				-- create mode options
-				local modes = {'Toggle', 'Click', 'Hold', 'Always'}
-				for idx, mode in ipairs(modes) do
-					local opt = instances.modeOption:Clone()
-					opt.Name = '#mode-' .. mode:lower()
-					opt.Text = mode
-					opt.Visible = true
-					opt.LayoutOrder = idx
-					opt.Parent = instances.modeOption.Parent
-
-					if (mode == new.mode) then
-						opt.TextColor3 = theme.Primary
-					end
-
-					opt.MouseEnter:Connect(function()
-						tween(opt, {BackgroundTransparency = 0, BackgroundColor3 = theme.Button2}, 0.15, 1)
-					end)
-					opt.MouseLeave:Connect(function()
-						tween(opt, {BackgroundTransparency = 1}, 0.15, 1)
-					end)
-					opt.MouseButton1Click:Connect(function()
-						new:setMode(mode)
-						new:closeModeMenu()
-					end)
-
-					table.insert(new.modeInstances, {
-						text = mode,
-						inst = opt
-					})
-				end
-
-				table.insert(ui.hotkeys, new)
-
-				new.instances = instances
-				return new
-			end
-
-			hotkey.linkToControl = function(self, control)
-				if (control and control.__hotkeyFunc == nil) then
-					return error('couldn\'t find control function', 2)
-				elseif (not control) then
-					control = nil
-				end
-
-				self.linkedControl = control
-				return self
-			end
-
-			hotkey.setHotkey = function(self, hk)
-				if (hk) then
-					if (typeof(hk) == 'EnumItem') then
-						if (hk.EnumType == Enum.KeyCode) then
-							self.hotkey = hk
-							self.instances.hotkey.Text = ('[%s]'):format(hk.Name)
-						elseif (hk.EnumType == Enum.UserInputType) then
-							self.hotkey = hk
-							if (hk == Enum.UserInputType.MouseButton2) then
-								self.instances.hotkey.Text = '[RMB]'
-							else
-								self.instances.hotkey.Text = ('[%s]'):format(hk.Name)
-							end
-						else
-							return error('expected EnumItem of EnumType KeyCode or UserInputType for hotkey', 2)
-						end
-					else
-						if (Enum.KeyCode[hk]) then
-							self.hotkey = Enum.KeyCode[hk]
-							self.instances.hotkey.Text = ('[%s]'):format(hk)
-						else
-							return error('expected valid Enum.KeyCode Name, or Enum.KeyCode EnumItem', 2)
-						end
-					end
-				else
-					self.hotkey = nil
-					self.instances.hotkey.Text = '[None]'
-				end
-			end
-			hotkey.getHotkey = function(self) return self.hotkey end
-			hotkey.getMode = function(self) return self.mode end
-
-			elemClasses.section.addHotkey = function(self, settings)
-				if (not typeof(settings) == 'table') then
-					return error('expected type table for settings', 2)
-				end
-
-				local s_title = settings.text or 'nil'
-				local s_bind = settings.bind or nil
-				local s_mode = settings.mode or 'Toggle'
-
-				if (s_bind) then
-					if (typeof(s_bind) == 'EnumItem') then
-						if (s_bind.EnumType ~= Enum.KeyCode and s_bind.EnumType ~= Enum.UserInputType) then
-							return error('expected EnumItem of EnumType KeyCode or UserInputType for settings.bind', 2)
-						end
-					else
-						if (Enum.KeyCode[s_bind]) then
-							s_bind = Enum.KeyCode[s_bind]
-						else
-							return error('expected valid Enum.KeyCode Name, or Enum.KeyCode EnumItem', 2)
-						end
-					end
-				end
-
-				local hotkey = hotkey:new()
-				hotkey.section = self
-				hotkey.name = s_title
-				table.insert(self.controls, hotkey)
-
-				hotkey.instances.label.Text = s_title
-				if (s_bind) then
-					hotkey:setHotkey(s_bind)
-				end
-				if (s_mode ~= 'Toggle') then
-					hotkey:setMode(s_mode)
-				end
-				hotkey.instances.controlFrame.Parent = self.instances.controlMenu
-			return hotkey
-		end
-        elemClasses.hotkey = hotkey
-	end
+    -- HOTKEY
+    do
+        local hotkey = {} do
+            hotkey.__index = hotkey
+            setmetatable(hotkey, elemClasses.baseElement)
+
+            hotkey.class = 'hotkey'
+
+            do
+                local instances = {} do
+                    local controlFrame = Instance.new('Frame')
+                    controlFrame.BackgroundTransparency = 1
+                    controlFrame.Name = '#control'
+                    controlFrame.Size = UDim2.new(1, 0, 0, 20)
+                    controlFrame.Visible = true
+                    controlFrame.ZIndex = 34
+
+                    instances.controlFrame = controlFrame
+
+                    local back = Instance.new('TextButton') do
+                        back.BackgroundTransparency = 1
+                        back.Name = '#back'
+                        back.Size = UDim2.fromScale(1, 1)
+                        back.Text = ''
+                        back.TextTransparency = 1
+                        back.ZIndex = 34
+
+                        back.Parent = controlFrame
+
+                        local label = Instance.new('TextLabel') do
+                            label.BackgroundTransparency = 1
+                            label.Font = 'Ubuntu'
+                            label.Name = '#label'
+                            label.RichText = true
+                            label.Size = UDim2.fromScale(1, 1)
+                            label.Text = 'button'
+                            label.TextColor3 = theme.TextPrimary
+                            label.TextSize = 14
+                            label.TextStrokeColor3 = theme.TextStroke
+                            label.TextStrokeTransparency = 0.8
+                            label.TextTransparency = 0
+                            label.TextWrapped = false
+                            label.TextXAlignment = 'Left'
+                            label.TextYAlignment = 'Center'
+                            label.Visible = true
+                            label.ZIndex = 35
+
+                            label.Parent = back
+
+                            local padding = Instance.new('UIPadding') do
+                                padding.Name = '#padding'
+                                padding.PaddingLeft = UDim.new(0, 6)
+
+                                padding.Parent = label
+                            end
+                        end
+
+                        local hotkeyLabel = Instance.new('TextLabel') do
+                            hotkeyLabel.Active = false
+                            hotkeyLabel.AnchorPoint = Vector2.new(1, 0)
+                            hotkeyLabel.BackgroundTransparency = 1
+                            hotkeyLabel.Font = 'Ubuntu'
+                            hotkeyLabel.Name = '#hotkey'
+                            hotkeyLabel.Position = UDim2.new(1, -3, 0, 2)
+                            hotkeyLabel.Size = UDim2.fromOffset(16, 16)
+                            hotkeyLabel.Text = '[None]'
+                            hotkeyLabel.TextColor3 = theme.TextDim
+                            hotkeyLabel.TextScaled = false
+                            hotkeyLabel.TextSize = 14
+                            hotkeyLabel.TextStrokeColor3 = theme.TextStroke
+                            hotkeyLabel.TextStrokeTransparency = 0.8
+                            hotkeyLabel.TextWrapped = false
+                            hotkeyLabel.TextXAlignment = 'Right'
+                            hotkeyLabel.TextYAlignment = 'Center'
+                            hotkeyLabel.Visible = true
+                            hotkeyLabel.ZIndex = 35
+
+                            hotkeyLabel.Parent = back
+                        end
+                    end
+
+                    -- mode context menu
+                    local modeMenu = Instance.new('Frame') do
+                        modeMenu.BackgroundColor3 = theme.Window3
+                        modeMenu.BorderColor3 = theme.Inset3
+                        modeMenu.BorderMode = 'Inset'
+                        modeMenu.BorderSizePixel = 1
+                        modeMenu.ClipsDescendants = true
+                        modeMenu.Name = '#mode-menu'
+                        modeMenu.Position = UDim2.new(1, -60, 0, 20)
+                        modeMenu.Size = UDim2.fromOffset(56, 0)
+                        modeMenu.Visible = false
+                        modeMenu.ZIndex = 80
+
+                        modeMenu.Parent = controlFrame
+
+                        local round = Instance.new('UICorner') do
+                            round.CornerRadius = UDim.new(0, rounding and 2 or 0)
+                            round.Name = '#round'
+
+                            round.Parent = modeMenu
+                        end
+
+                        local stroke = Instance.new('UIStroke') do
+                            stroke.ApplyStrokeMode = 'Border'
+                            stroke.Color = theme.Stroke
+                            stroke.LineJoinMode = 'Round'
+                            stroke.Name = '#stroke'
+                            stroke.Thickness = 1
+
+                            stroke.Parent = modeMenu
+                        end
+
+                        local container = Instance.new('Frame') do
+                            container.BackgroundTransparency = 1
+                            container.Name = '#container'
+                            container.Size = UDim2.fromScale(1, 1)
+                            container.Visible = true
+                            container.ZIndex = 81
+
+                            container.Parent = modeMenu
+
+                            local layout = Instance.new('UIListLayout') do
+                                layout.FillDirection = 'Vertical'
+                                layout.HorizontalAlignment = 'Center'
+                                layout.Name = '#layout'
+                                layout.Padding = UDim.new(0, 1)
+                                layout.SortOrder = 'LayoutOrder'
+                                layout.VerticalAlignment = 'Top'
+
+                                layout.Parent = container
+                            end
+
+                            local padding = Instance.new('UIPadding') do
+                                padding.Name = '#padding'
+                                padding.PaddingTop = UDim.new(0, 2)
+                                padding.PaddingBottom = UDim.new(0, 2)
+
+                                padding.Parent = container
+                            end
+                        end
+
+                        local modeOption = Instance.new('TextButton') do
+                            modeOption.AutoButtonColor = false
+                            modeOption.BackgroundColor3 = theme.Button1
+                            modeOption.BackgroundTransparency = 1
+                            modeOption.Font = 'Ubuntu'
+                            modeOption.Name = '#mode-option'
+                            modeOption.Size = UDim2.new(1, -4, 0, 14)
+                            modeOption.Text = 'mode'
+                            modeOption.TextColor3 = theme.TextPrimary
+                            modeOption.TextSize = 12
+                            modeOption.TextStrokeColor3 = theme.TextStroke
+                            modeOption.TextStrokeTransparency = 0.8
+                            modeOption.TextWrapped = false
+                            modeOption.TextXAlignment = 'Center'
+                            modeOption.TextYAlignment = 'Center'
+                            modeOption.Visible = false
+                            modeOption.ZIndex = 82
+
+                            modeOption.Parent = container
+
+                            local round = Instance.new('UICorner') do
+                                round.CornerRadius = UDim.new(0, rounding and 2 or 0)
+                                round.Name = '#round'
+
+                                round.Parent = modeOption
+                            end
+                        end
+
+                        instances.modeOption = modeOption
+                    end
+                end
+
+                hotkey.instances = instances
+            end
+
+            hotkey.set = nil
+            hotkey.hotkey = nil
+            hotkey.focused = false
+            hotkey.inputCon = nil
+            hotkey.mode = 'Toggle'
+            hotkey.modeMenuOpen = false
+            hotkey.alwaysActive = false
+            hotkey.alwaysActivated = false
+            hotkey.holdActivated = false
+            hotkey.linkedControl = nil
+
+            local validModes = {
+                Toggle = true,
+                Click = true,
+                Hold = true,
+                Always = true,
+            }
+
+            local function invokeControl(control)
+                if (control and control.__hotkeyFunc) then
+                    task.spawn(control.__hotkeyFunc, control)
+                end
+            end
+
+            local function enableControl(control)
+                if (not control) then
+                    return false
+                end
+
+                if (control.enable) then
+                    task.spawn(control.enable, control)
+                    return true
+                end
+
+                invokeControl(control)
+                return true
+            end
+
+            local function disableControl(control)
+                if (not control) then
+                    return false
+                end
+
+                if (control.disable) then
+                    task.spawn(control.disable, control)
+                    return true
+                end
+
+                invokeControl(control)
+                return true
+            end
+
+            hotkey.press = function(self)
+                local control = self.linkedControl
+
+                if (not control or self.inputCon) then
+                    return self
+                end
+
+                if (self.mode == 'Always') then
+                    return self
+                end
+
+                if (self.mode == 'Toggle') then
+                    invokeControl(control)
+                elseif (self.mode == 'Click') then
+                    invokeControl(control)
+                elseif (self.mode == 'Hold') then
+                    if (control.enable and control.disable) then
+                        local enabled = control.getState and control:getState() or false
+
+                        if (not enabled) then
+                            self.holdActivated = true
+                            enableControl(control)
+                        else
+                            self.holdActivated = false
+                        end
+                    else
+                        self.holdActivated = true
+                        invokeControl(control)
+                    end
+                end
+
+                return self
+            end
+
+            hotkey.release = function(self)
+                if (self.mode ~= 'Hold' or not self.holdActivated) then
+                    return self
+                end
+
+                local control = self.linkedControl
+
+                if (control) then
+                    if (control.disable) then
+                        disableControl(control)
+                    else
+                        invokeControl(control)
+                    end
+                end
+
+                self.holdActivated = false
+                return self
+            end
+
+            hotkey.click = function(self)
+                if (self.inputCon) then
+                    return self
+                end
+
+                local display = self.instances.hotkey
+
+                tween(display, {
+                    TextColor3 = theme.Primary
+                }, 0.3, 1)
+
+                self.inputCon = inputService.InputBegan:Connect(function(io)
+                    local kc = io.KeyCode.Name
+                    local inputType = io.UserInputType.Name
+
+                    if (inputType == 'MouseButton2' and kc == 'Unknown') then
+                        self.hotkey = Enum.UserInputType.MouseButton2
+                        self.set = os.clock()
+                        display.Text = '[RMB]'
+
+                        self.inputCon:Disconnect()
+                        self.inputCon = nil
+
+                        if (self.focused) then
+                            tween(display, {
+                                TextColor3 = theme.TextPrimary
+                            }, 0.3, 1)
+                        else
+                            tween(display, {
+                                TextColor3 = theme.TextDim
+                            }, 0.3, 1)
+                        end
+
+                        return
+                    end
+
+                    if (kc == 'Unknown' or kc == 'Escape') then
+                        self.hotkey = nil
+                        display.Text = '[None]'
+
+                        self.inputCon:Disconnect()
+                        self.inputCon = nil
+
+                        if (self.focused) then
+                            tween(display, {
+                                TextColor3 = theme.TextPrimary
+                            }, 0.3, 1)
+                        else
+                            tween(display, {
+                                TextColor3 = theme.TextDim
+                            }, 0.3, 1)
+                        end
+                    else
+                        self.hotkey = io.KeyCode
+                        self.set = os.clock()
+                        display.Text = ('[%s]'):format(kc)
+
+                        self.inputCon:Disconnect()
+                        self.inputCon = nil
+
+                        if (self.focused) then
+                            tween(display, {
+                                TextColor3 = theme.TextPrimary
+                            }, 0.3, 1)
+                        else
+                            tween(display, {
+                                TextColor3 = theme.TextDim
+                            }, 0.3, 1)
+                        end
+                    end
+                end)
+
+                return self
+            end
+
+            hotkey.__hotkeyFunc = hotkey.click
+
+            hotkey.openModeMenu = function(self)
+                if (self.modeMenuOpen) then
+                    self:closeModeMenu()
+                    return self
+                end
+
+                self.modeMenuOpen = true
+
+                local modeMenu = self.instances.modeMenu
+                modeMenu.Visible = true
+
+                tween(modeMenu, {
+                    Size = UDim2.fromOffset(56, 64)
+                }, 0.2, 1)
+
+                return self
+            end
+
+            hotkey.closeModeMenu = function(self)
+                if (not self.modeMenuOpen) then
+                    return self
+                end
+
+                self.modeMenuOpen = false
+
+                local modeMenu = self.instances.modeMenu
+                local menuTween = tween(modeMenu, {
+                    Size = UDim2.fromOffset(56, 0)
+                }, 0.2, 1)
+
+                menuTween.Completed:Connect(function()
+                    if (not self.modeMenuOpen) then
+                        modeMenu.Visible = false
+                    end
+                end)
+
+                return self
+            end
+
+            hotkey.setMode = function(self, mode)
+                if (not validModes[mode]) then
+                    return error(
+                        'invalid hotkey mode: ' .. tostring(mode),
+                        2
+                    )
+                end
+
+                local oldMode = self.mode
+                local control = self.linkedControl
+
+                if (
+                    oldMode == 'Hold'
+                    and mode ~= 'Hold'
+                    and self.holdActivated
+                ) then
+                    self:release()
+                end
+
+                if (
+                    oldMode == 'Always'
+                    and mode ~= 'Always'
+                    and self.alwaysActivated
+                    and control
+                ) then
+                    disableControl(control)
+                end
+
+                self.mode = mode
+                self.alwaysActive = mode == 'Always'
+                self.alwaysActivated = false
+                self.holdActivated = false
+
+                for _, optData in ipairs(self.modeInstances) do
+                    if (optData.text == mode) then
+                        optData.inst.TextColor3 = theme.Primary
+                    else
+                        optData.inst.TextColor3 = theme.TextPrimary
+                    end
+                end
+
+                if (mode == 'Always' and control) then
+                    local enabled = control.getState
+                        and control:getState()
+                        or false
+
+                    if (not enabled) then
+                        self.alwaysActivated = enableControl(control)
+                    end
+                end
+
+                self:fireEvent('onModeChange', mode)
+                return self
+            end
+
+            hotkey.signals = {
+                back = {
+                    MouseEnter = function(inst, self)
+                        self.focused = true
+                        self:showTooltip()
+
+                        if (self.inputCon) then
+                            tween(self.instances.hotkey, {
+                                TextColor3 = theme.Primary
+                            }, 0.2, 1)
+                        else
+                            tween(self.instances.hotkey, {
+                                TextColor3 = theme.TextPrimary
+                            }, 0.2, 1)
+                        end
+                    end,
+
+                    MouseLeave = function(inst, self)
+                        self.focused = false
+                        self:hideTooltip()
+
+                        if (self.inputCon) then
+                            tween(self.instances.hotkey, {
+                                TextColor3 = theme.Primary
+                            }, 0.2, 1)
+                        else
+                            tween(self.instances.hotkey, {
+                                TextColor3 = theme.TextDim
+                            }, 0.2, 1)
+                        end
+                    end,
+
+                    MouseButton1Click = function(inst, self)
+                        if (self.modeMenuOpen) then
+                            self:closeModeMenu()
+                        end
+
+                        self:click()
+                    end,
+
+                    MouseButton2Click = function(inst, self)
+                        self:openModeMenu()
+                    end
+                }
+            }
+
+            hotkey.new = function(self)
+                local new = setmetatable({}, self)
+
+                new.binds = {}
+                new.modeInstances = {}
+                new.set = nil
+                new.hotkey = nil
+                new.focused = false
+                new.inputCon = nil
+                new.mode = 'Toggle'
+                new.modeMenuOpen = false
+                new.alwaysActive = false
+                new.alwaysActivated = false
+                new.holdActivated = false
+                new.linkedControl = nil
+
+                local instances = {}
+                instances.controlFrame = self.instances.controlFrame:Clone()
+                instances.back = instances.controlFrame['#back']
+                instances.label = instances.back['#label']
+                instances.hotkey = instances.back['#hotkey']
+                instances.modeMenu = instances.controlFrame['#mode-menu']
+                instances.modeOption =
+                    instances.modeMenu['#container']['#mode-option']
+
+                for i, signals in pairs(self.signals) do
+                    local inst = instances[i]
+
+                    for signal, func in pairs(signals) do
+                        inst[signal]:Connect(function()
+                            func(inst, new)
+                        end)
+                    end
+                end
+
+                local modes = {
+                    'Toggle',
+                    'Click',
+                    'Hold',
+                    'Always',
+                }
+
+                for idx, mode in ipairs(modes) do
+                    local opt = instances.modeOption:Clone()
+                    opt.Name = '#mode-' .. mode:lower()
+                    opt.Text = mode
+                    opt.Visible = true
+                    opt.LayoutOrder = idx
+                    opt.Parent = instances.modeOption.Parent
+
+                    if (mode == new.mode) then
+                        opt.TextColor3 = theme.Primary
+                    end
+
+                    opt.MouseEnter:Connect(function()
+                        tween(opt, {
+                            BackgroundTransparency = 0,
+                            BackgroundColor3 = theme.Button2
+                        }, 0.15, 1)
+                    end)
+
+                    opt.MouseLeave:Connect(function()
+                        tween(opt, {
+                            BackgroundTransparency = 1
+                        }, 0.15, 1)
+                    end)
+
+                    opt.MouseButton1Click:Connect(function()
+                        new:setMode(mode)
+                        new:closeModeMenu()
+                    end)
+
+                    table.insert(new.modeInstances, {
+                        text = mode,
+                        inst = opt
+                    })
+                end
+
+                table.insert(ui.hotkeys, new)
+
+                new.instances = instances
+                return new
+            end
+
+            hotkey.linkToControl = function(self, control)
+                if (control and control.__hotkeyFunc == nil) then
+                    return error(
+                        'couldn\'t find control function',
+                        2
+                    )
+                end
+
+                local oldControl = self.linkedControl
+
+                if (
+                    oldControl
+                    and oldControl ~= control
+                    and self.mode == 'Always'
+                    and self.alwaysActivated
+                ) then
+                    disableControl(oldControl)
+                end
+
+                if (
+                    oldControl
+                    and oldControl ~= control
+                    and self.mode == 'Hold'
+                    and self.holdActivated
+                ) then
+                    disableControl(oldControl)
+                end
+
+                self.linkedControl = control
+                self.alwaysActivated = false
+                self.holdActivated = false
+
+                if (control and self.mode == 'Always') then
+                    local enabled = control.getState
+                        and control:getState()
+                        or false
+
+                    if (not enabled) then
+                        self.alwaysActivated = enableControl(control)
+                    end
+                end
+
+                return self
+            end
+
+            hotkey.setHotkey = function(self, hk)
+                if (hk) then
+                    if (typeof(hk) == 'EnumItem') then
+                        if (hk.EnumType == Enum.KeyCode) then
+                            self.hotkey = hk
+                            self.instances.hotkey.Text =
+                                ('[%s]'):format(hk.Name)
+                        elseif (hk.EnumType == Enum.UserInputType) then
+                            self.hotkey = hk
+
+                            if (hk == Enum.UserInputType.MouseButton2) then
+                                self.instances.hotkey.Text = '[RMB]'
+                            else
+                                self.instances.hotkey.Text =
+                                    ('[%s]'):format(hk.Name)
+                            end
+                        else
+                            return error(
+                                'expected EnumItem of EnumType KeyCode or UserInputType for hotkey',
+                                2
+                            )
+                        end
+                    else
+                        if (Enum.KeyCode[hk]) then
+                            self.hotkey = Enum.KeyCode[hk]
+                            self.instances.hotkey.Text =
+                                ('[%s]'):format(hk)
+                        else
+                            return error(
+                                'expected valid Enum.KeyCode Name, or Enum.KeyCode EnumItem',
+                                2
+                            )
+                        end
+                    end
+                else
+                    self.hotkey = nil
+                    self.instances.hotkey.Text = '[None]'
+                end
+
+                self.set = os.clock()
+                return self
+            end
+
+            hotkey.getHotkey = function(self)
+                return self.hotkey
+            end
+
+            hotkey.getMode = function(self)
+                return self.mode
+            end
+
+            local function getInputValue(io)
+                if (
+                    io.UserInputType
+                    == Enum.UserInputType.MouseButton2
+                ) then
+                    return Enum.UserInputType.MouseButton2
+                end
+
+                if (
+                    io.UserInputType
+                    == Enum.UserInputType.Keyboard
+                ) then
+                    return io.KeyCode
+                end
+
+                return nil
+            end
+
+            local function installHotkeyHandler()
+                if (ui.hotkeyModesInstalled) then
+                    return
+                end
+
+                ui.hotkeyModesInstalled = true
+
+                -- Replace the library's old handler so controls
+                -- do not get activated twice.
+                if (ui.hkCon) then
+                    ui.hkCon:Disconnect()
+                    ui.hkCon = nil
+                end
+
+                if (ui.hkEndCon) then
+                    ui.hkEndCon:Disconnect()
+                    ui.hkEndCon = nil
+                end
+
+                ui.hkCon = inputService.InputBegan:Connect(function(io, gpe)
+                    if (gpe) then
+                        return
+                    end
+
+                    local inputValue = getInputValue(io)
+
+                    if (not inputValue) then
+                        return
+                    end
+
+                    for i = 1, #ui.hotkeys do
+                        local hk = ui.hotkeys[i]
+
+                        if (
+                            hk
+                            and hk.hotkey == inputValue
+                            and not hk.inputCon
+                        ) then
+                            local recentlySet = hk.set
+                                and (os.clock() - hk.set) < 0.15
+
+                            if (not recentlySet) then
+                                hk:press()
+                            end
+                        end
+                    end
+                end)
+
+                ui.hkEndCon = inputService.InputEnded:Connect(function(io)
+                    local inputValue = getInputValue(io)
+
+                    if (not inputValue) then
+                        return
+                    end
+
+                    for i = 1, #ui.hotkeys do
+                        local hk = ui.hotkeys[i]
+
+                        if (hk and hk.hotkey == inputValue) then
+                            hk:release()
+                        end
+                    end
+                end)
+
+                if (ui.scriptCns) then
+                    table.insert(ui.scriptCns, ui.hkEndCon)
+                end
+            end
+
+            elemClasses.section.addHotkey = function(self, settings)
+                if (typeof(settings) ~= 'table') then
+                    return error(
+                        'expected type table for settings',
+                        2
+                    )
+                end
+
+                installHotkeyHandler()
+
+                local s_title = settings.text or 'nil'
+                local s_bind = settings.bind or nil
+                local s_mode = settings.mode or 'Toggle'
+
+                if (not validModes[s_mode]) then
+                    return error(
+                        'invalid hotkey mode: ' .. tostring(s_mode),
+                        2
+                    )
+                end
+
+                if (s_bind) then
+                    if (typeof(s_bind) == 'EnumItem') then
+                        if (
+                            s_bind.EnumType ~= Enum.KeyCode
+                            and s_bind.EnumType ~= Enum.UserInputType
+                        ) then
+                            return error(
+                                'expected EnumItem of EnumType KeyCode or UserInputType for settings.bind',
+                                2
+                            )
+                        end
+                    else
+                        if (Enum.KeyCode[s_bind]) then
+                            s_bind = Enum.KeyCode[s_bind]
+                        else
+                            return error(
+                                'expected valid Enum.KeyCode Name, or Enum.KeyCode EnumItem',
+                                2
+                            )
+                        end
+                    end
+                end
+
+                local newHotkey = hotkey:new()
+                newHotkey.section = self
+                newHotkey.name = s_title
+
+                table.insert(self.controls, newHotkey)
+
+                newHotkey.instances.label.Text = s_title
+
+                if (s_bind) then
+                    newHotkey:setHotkey(s_bind)
+                end
+
+                newHotkey:setMode(s_mode)
+                newHotkey.instances.controlFrame.Parent =
+                    self.instances.controlMenu
+
+                return newHotkey
+            end
+
+            elemClasses.hotkey = hotkey
+        end
+    end
 end
 
 do
@@ -7876,8 +8244,8 @@ do
         end
     end
     
+--[[
     -- hotkey handler
-	-- hotkey handler
 	do
 		local hotkeys = ui.hotkeys
 		ui.hkCon = inputService.InputBegan:Connect(function(io, gpe)
@@ -7922,6 +8290,6 @@ do
 		end)
 	end
 end
-
+--]]
 
 return ui 
