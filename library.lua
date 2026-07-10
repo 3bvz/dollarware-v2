@@ -7,6 +7,11 @@
 -- started on 5/18/22
 
 -- continued by paxwatch/envy on 7/9/2026
+
+--[[
+features done:
+- dropdowns
+]]
 local inputService = game:GetService('UserInputService')
 local renderService = game:GetService('RunService')
 local tweenService = game:GetService('TweenService')
