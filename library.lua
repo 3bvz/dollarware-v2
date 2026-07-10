@@ -7527,7 +7527,7 @@ end
 						end
 						self:click()
 					end,
-					MouseButton2Down = function(inst, self)
+					MouseButton2Click = function(inst, self)
 						self:openModeMenu()
 					end
 				}
@@ -7673,7 +7673,7 @@ end
 				hotkey.instances.controlFrame.Parent = self.instances.controlMenu
 			return hotkey
 		end
-        lemClasses.hotkey = hotkey
+        elemClasses.hotkey = hotkey
 	end
 end
 
@@ -7889,9 +7889,9 @@ do
 			if (isKeyboard or isRMB) then
 				local matchValue = isRMB and Enum.UserInputType.MouseButton2 or io.KeyCode
 
-				for i = 1, #hotkeys do
-					local hk = hotkeys[i]
-					if (hk.hotkey == matchValue and hk.set ~= time()) then
+                for i = 1, #hotkeys do
+                    local hk = hotkeys[i]
+                    if (hk and hk.hotkey == matchValue and hk.set ~= time()) then
 						local linkedControl = hk.linkedControl
 						if (linkedControl) then
 							local mode = hk.mode
