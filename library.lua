@@ -7527,7 +7527,7 @@ end
 						end
 						self:click()
 					end,
-					MouseButton2Click = function(inst, self)
+					MouseButton2Down = function(inst, self)
 						self:openModeMenu()
 					end
 				}
