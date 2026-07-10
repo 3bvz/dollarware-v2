@@ -1,7 +1,7 @@
 -- Dollarware example script
 
 -- Snag the ui loader function thingy (loadstring the link, but dont call it)
-local uiLoader = loadstring(game:HttpGet('https://raw.githubusercontent.com/topitbopit/dollarware/main/library.lua'))
+local uiLoader = loadstring(game:HttpGet('https://raw.githubusercontent.com/3bvz/dollarware-v2/refs/heads/main/library.lua'))
 -- Because of the way the library loads, settings are handled on the loadstring call
 local ui = uiLoader({
     rounding = false, -- Whether certain features get rounded 
@@ -113,6 +113,20 @@ do
                 duration = 4
             })
         end)
+
+        local dd = section:addDropdown({
+            text = 'select mode',
+            options = {'option 1', 'option 2', 'option 3'},
+            default = 'option 1',
+            maxVisible = 5
+        }, function(selected)
+            print('picked:', selected)
+        end)
+
+        --dd:setOptions({'new', 'options', 'here'})
+       -- dd:addOption('another one')
+        --dd:removeOption('new')
+       -- dd:setSelected('here')
     end
     
 end
