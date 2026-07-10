@@ -421,7 +421,7 @@ local tooltip = {} do
                 
                 local title = Instance.new('TextLabel') do 
                     title.BackgroundTransparency = 1
-                    title.Font = 'SourceSans'
+                    title.Font = 'Ubuntu'
                     title.Name = '#title'
                     title.RichText = true
                     title.Size = UDim2.fromScale(1, 1)
@@ -466,7 +466,7 @@ local tooltip = {} do
                 
                 local desc = Instance.new('TextLabel') do 
                     desc.BackgroundTransparency = 1
-                    desc.Font = 'SourceSans'
+                    desc.Font = 'Ubuntu'
                     desc.Name = '#desc'
                     desc.RichText = true
                     desc.Size = UDim2.fromScale(1, 1)
@@ -628,7 +628,7 @@ local hint = {} do
                             
                             local hintOption = Instance.new('TextLabel') do 
                                 hintOption.BackgroundTransparency = 1
-                                --hintOption.Font = 'SourceSansItalic'
+                                --hintOption.Font = 'UbuntuItalic'
                                 hintOption.Name = '#hint'
                                 hintOption.RichText = true
                                 hintOption.Size = UDim2.new(1, 0, 0, 16)
@@ -2548,7 +2548,7 @@ do
                                     inputBox.BackgroundTransparency = 0.1
                                     inputBox.ClearTextOnFocus = true
                                     inputBox.ClipsDescendants = true
-                                    inputBox.Font = 'SourceSans'
+                                    inputBox.Font = 'Ubuntu'
                                     inputBox.Name = '#input-box'
                                     inputBox.PlaceholderColor3 = theme.TextDim
                                     inputBox.PlaceholderText = 'enter value'
@@ -2594,7 +2594,7 @@ do
                             
                             local title = Instance.new('TextLabel') do 
                                 title.BackgroundTransparency = 1
-                                title.Font = 'SourceSans'
+                                title.Font = 'Ubuntu'
                                 title.Name = '#title'
                                 title.Size = UDim2.new(1, 0, 1, -1)
                                 title.Text = 'red'
@@ -2620,7 +2620,7 @@ do
                             
                             local val = Instance.new('TextLabel') do 
                                 val.BackgroundTransparency = 1
-                                val.Font = 'SourceSans'
+                                val.Font = 'Ubuntu'
                                 val.Name = '#val'
                                 val.Size = UDim2.new(1, 0, 1, -1)
                                 val.Text = '255'
@@ -2721,7 +2721,7 @@ do
                                     inputBox.BackgroundTransparency = 0.1
                                     inputBox.ClearTextOnFocus = true
                                     inputBox.ClipsDescendants = true
-                                    inputBox.Font = 'SourceSans'
+                                    inputBox.Font = 'Ubuntu'
                                     inputBox.Name = '#input-box'
                                     inputBox.PlaceholderColor3 = theme.TextDim
                                     inputBox.PlaceholderText = 'enter value'
@@ -2760,7 +2760,7 @@ do
                             
                             local title = Instance.new('TextLabel') do 
                                 title.BackgroundTransparency = 1
-                                title.Font = 'SourceSans'
+                                title.Font = 'Ubuntu'
                                 title.Name = '#title'
                                 title.Size = UDim2.new(1, 0, 1, -1)
                                 title.Text = 'green'
@@ -2786,7 +2786,7 @@ do
                             
                             local val = Instance.new('TextLabel') do 
                                 val.BackgroundTransparency = 1
-                                val.Font = 'SourceSans'
+                                val.Font = 'Ubuntu'
                                 val.Name = '#val'
                                 val.Size = UDim2.new(1, 0, 1, -1)
                                 val.Text = '255'
@@ -2887,7 +2887,7 @@ do
                                     inputBox.BackgroundTransparency = 0.1
                                     inputBox.ClearTextOnFocus = true
                                     inputBox.ClipsDescendants = true
-                                    inputBox.Font = 'SourceSans'
+                                    inputBox.Font = 'Ubuntu'
                                     inputBox.Name = '#input-box'
                                     inputBox.PlaceholderColor3 = theme.TextDim
                                     inputBox.PlaceholderText = 'enter value'
@@ -2926,7 +2926,7 @@ do
                             
                             local title = Instance.new('TextLabel') do 
                                 title.BackgroundTransparency = 1
-                                title.Font = 'SourceSans'
+                                title.Font = 'Ubuntu'
                                 title.Name = '#title'
                                 title.Size = UDim2.new(1, 0, 1, -1)
                                 title.Text = 'blue'
@@ -2952,7 +2952,7 @@ do
                             
                             local val = Instance.new('TextLabel') do 
                                 val.BackgroundTransparency = 1
-                                val.Font = 'SourceSans'
+                                val.Font = 'Ubuntu'
                                 val.Name = '#val'
                                 val.Size = UDim2.new(1, 0, 1, -1)
                                 val.Text = '255'
@@ -3929,7 +3929,7 @@ do
                     pageSelector.AutoButtonColor = false
                     pageSelector.BackgroundColor3 = theme.Button1
                     pageSelector.BackgroundTransparency = 0
-                    pageSelector.Font = 'SourceSans'
+                    pageSelector.Font = 'Ubuntu'
                     pageSelector.Name = '#page-selector'
                     pageSelector.Size = UDim2.new(1, -8, 0, 20)
                     pageSelector.Text = ''
@@ -4255,7 +4255,7 @@ do
                     
                     local title = Instance.new('TextLabel') do 
                         title.BackgroundTransparency = 1
-                        title.Font = 'SourceSans'
+                        title.Font = 'Ubuntu'
                         title.Name = '#title'
                         title.RichText = true
                         title.Size = UDim2.fromScale(1, 1)
@@ -4471,7 +4471,7 @@ do
                         
                         local label = Instance.new('TextLabel') do 
                             label.BackgroundTransparency = 1
-                            label.Font = 'SourceSans'
+                            label.Font = 'Ubuntu'
                             label.Name = '#label'
                             label.RichText = true
                             label.Size = UDim2.fromScale(1, 1)
@@ -4788,7 +4788,7 @@ do
                             
                             local label = Instance.new('TextLabel') do 
                                 label.BackgroundTransparency = 1
-                                label.Font = 'SourceSans'
+                                label.Font = 'Ubuntu'
                                 label.Name = '#label'
                                 label.RichText = true
                                 label.Size = UDim2.fromScale(1, 1)
@@ -5011,7 +5011,7 @@ do
                                 
                                 local label = Instance.new('TextLabel') do 
                                     label.BackgroundTransparency = 1
-                                    label.Font = 'SourceSans'
+                                    label.Font = 'Ubuntu'
                                     label.Name = '#label'
                                     label.RichText = true
                                     label.Size = UDim2.fromScale(1, 1)
@@ -5165,7 +5165,7 @@ do
 
                 local label = Instance.new('TextLabel') do 
                     label.BackgroundTransparency = 1
-                    label.Font = 'SourceSans'
+                    label.Font = 'Ubuntu'
                     label.Name = '#label'
                     label.RichText = true
                     label.Size = UDim2.fromScale(1, 1)
@@ -5768,7 +5768,7 @@ do
                             inputBox.BackgroundTransparency = 0.1
                             inputBox.ClearTextOnFocus = true
                             inputBox.ClipsDescendants = true
-                            inputBox.Font = 'SourceSans'
+                            inputBox.Font = 'Ubuntu'
                             inputBox.Name = '#input-box'
                             inputBox.PlaceholderColor3 = theme.TextDim
                             inputBox.PlaceholderText = 'enter value'
@@ -5807,7 +5807,7 @@ do
                     
                     local title = Instance.new('TextLabel') do 
                         title.BackgroundTransparency = 1
-                        title.Font = 'SourceSans'
+                        title.Font = 'Ubuntu'
                         title.Name = '#label'
                         title.Size = UDim2.fromScale(1, 1)
                         title.Text = 'slider'
@@ -5833,7 +5833,7 @@ do
                     
                     local val = Instance.new('TextLabel') do 
                         val.BackgroundTransparency = 1
-                        val.Font = 'SourceSans'
+                        val.Font = 'Ubuntu'
                         val.Name = '#val'
                         val.Size = UDim2.fromScale(1, 1)
                         val.Text = '0'
@@ -6111,7 +6111,7 @@ do
                         
                         local label = Instance.new('TextLabel') do 
                             label.BackgroundTransparency = 1
-                            label.Font = 'SourceSans'
+                            label.Font = 'Ubuntu'
                             label.Name = '#label'
                             label.RichText = true
                             label.Size = UDim2.fromScale(1, 1)
@@ -6487,7 +6487,7 @@ do
                         inputBox.BackgroundTransparency = 0
                         inputBox.ClearTextOnFocus = true
                         inputBox.ClipsDescendants = true
-                        inputBox.Font = 'SourceSans'
+                        inputBox.Font = 'Ubuntu'
                         inputBox.Name = '#textbox'
                         inputBox.PlaceholderColor3 = theme.TextDim
                         inputBox.PlaceholderText = '...'
@@ -6533,7 +6533,7 @@ do
                         
                         local autoFill = Instance.new('TextLabel') do 
                             autoFill.BackgroundTransparency = 1
-                            autoFill.Font = 'SourceSans'
+                            autoFill.Font = 'Ubuntu'
                             autoFill.Name = '#autofill'
                             autoFill.Size = UDim2.fromScale(1, 1)
                             autoFill.Text = 'autofill'
@@ -7040,7 +7040,7 @@ do
                         local title = Instance.new('TextLabel') do 
                             title.BackgroundTransparency = 1
                             title.BorderSizePixel = 0
-                            title.Font = 'SourceSans'
+                            title.Font = 'Ubuntu'
                             title.Name = '#title'
                             title.Position = UDim2.fromOffset(24, 0)
                             title.RichText = true
@@ -7086,7 +7086,7 @@ do
                         local desc = Instance.new('TextLabel') do 
                             desc.BackgroundTransparency = 1
                             desc.BorderSizePixel = 0
-                            desc.Font = 'SourceSans'
+                            desc.Font = 'Ubuntu'
                             desc.Name = '#desc'
                             desc.RichText = true
                             desc.Size = UDim2.fromScale(1, 1)
@@ -7250,7 +7250,7 @@ do
                         
                         local label = Instance.new('TextLabel') do 
                             label.BackgroundTransparency = 1
-                            label.Font = 'SourceSans'
+                            label.Font = 'Ubuntu'
                             label.Name = '#label'
                             label.RichText = true
                             label.Size = UDim2.fromScale(1, 1)
@@ -7280,7 +7280,7 @@ do
                             hotkey.Active = false
                             hotkey.AnchorPoint = Vector2.new(1, 0)
                             hotkey.BackgroundTransparency = 1 
-                            hotkey.Font = 'SourceSans'
+                            hotkey.Font = 'Ubuntu'
                             hotkey.Name = '#hotkey'
                             hotkey.Position = UDim2.new(1, -3, 0, 2)
                             hotkey.Size = UDim2.fromOffset(16, 16)
