@@ -7,11 +7,6 @@
 -- started on 5/18/22
 
 -- continued by paxwatch/envy on 7/9/2026
-
---[[
-features done:
-- dropdown
-]]
 local inputService = game:GetService('UserInputService')
 local renderService = game:GetService('RunService')
 local tweenService = game:GetService('TweenService')
@@ -421,7 +416,7 @@ local tooltip = {} do
                 
                 local title = Instance.new('TextLabel') do 
                     title.BackgroundTransparency = 1
-                    title.Font = 'Ubuntu'
+                    title.Font = 'SourceSans'
                     title.Name = '#title'
                     title.RichText = true
                     title.Size = UDim2.fromScale(1, 1)
@@ -466,7 +461,7 @@ local tooltip = {} do
                 
                 local desc = Instance.new('TextLabel') do 
                     desc.BackgroundTransparency = 1
-                    desc.Font = 'Ubuntu'
+                    desc.Font = 'SourceSans'
                     desc.Name = '#desc'
                     desc.RichText = true
                     desc.Size = UDim2.fromScale(1, 1)
@@ -628,7 +623,7 @@ local hint = {} do
                             
                             local hintOption = Instance.new('TextLabel') do 
                                 hintOption.BackgroundTransparency = 1
-                                --hintOption.Font = 'UbuntuItalic'
+                                --hintOption.Font = 'SourceSansItalic'
                                 hintOption.Name = '#hint'
                                 hintOption.RichText = true
                                 hintOption.Size = UDim2.new(1, 0, 0, 16)
@@ -2548,7 +2543,7 @@ do
                                     inputBox.BackgroundTransparency = 0.1
                                     inputBox.ClearTextOnFocus = true
                                     inputBox.ClipsDescendants = true
-                                    inputBox.Font = 'Ubuntu'
+                                    inputBox.Font = 'SourceSans'
                                     inputBox.Name = '#input-box'
                                     inputBox.PlaceholderColor3 = theme.TextDim
                                     inputBox.PlaceholderText = 'enter value'
@@ -2594,7 +2589,7 @@ do
                             
                             local title = Instance.new('TextLabel') do 
                                 title.BackgroundTransparency = 1
-                                title.Font = 'Ubuntu'
+                                title.Font = 'SourceSans'
                                 title.Name = '#title'
                                 title.Size = UDim2.new(1, 0, 1, -1)
                                 title.Text = 'red'
@@ -2620,7 +2615,7 @@ do
                             
                             local val = Instance.new('TextLabel') do 
                                 val.BackgroundTransparency = 1
-                                val.Font = 'Ubuntu'
+                                val.Font = 'SourceSans'
                                 val.Name = '#val'
                                 val.Size = UDim2.new(1, 0, 1, -1)
                                 val.Text = '255'
@@ -2721,7 +2716,7 @@ do
                                     inputBox.BackgroundTransparency = 0.1
                                     inputBox.ClearTextOnFocus = true
                                     inputBox.ClipsDescendants = true
-                                    inputBox.Font = 'Ubuntu'
+                                    inputBox.Font = 'SourceSans'
                                     inputBox.Name = '#input-box'
                                     inputBox.PlaceholderColor3 = theme.TextDim
                                     inputBox.PlaceholderText = 'enter value'
@@ -2760,7 +2755,7 @@ do
                             
                             local title = Instance.new('TextLabel') do 
                                 title.BackgroundTransparency = 1
-                                title.Font = 'Ubuntu'
+                                title.Font = 'SourceSans'
                                 title.Name = '#title'
                                 title.Size = UDim2.new(1, 0, 1, -1)
                                 title.Text = 'green'
@@ -2786,7 +2781,7 @@ do
                             
                             local val = Instance.new('TextLabel') do 
                                 val.BackgroundTransparency = 1
-                                val.Font = 'Ubuntu'
+                                val.Font = 'SourceSans'
                                 val.Name = '#val'
                                 val.Size = UDim2.new(1, 0, 1, -1)
                                 val.Text = '255'
@@ -2887,7 +2882,7 @@ do
                                     inputBox.BackgroundTransparency = 0.1
                                     inputBox.ClearTextOnFocus = true
                                     inputBox.ClipsDescendants = true
-                                    inputBox.Font = 'Ubuntu'
+                                    inputBox.Font = 'SourceSans'
                                     inputBox.Name = '#input-box'
                                     inputBox.PlaceholderColor3 = theme.TextDim
                                     inputBox.PlaceholderText = 'enter value'
@@ -2926,7 +2921,7 @@ do
                             
                             local title = Instance.new('TextLabel') do 
                                 title.BackgroundTransparency = 1
-                                title.Font = 'Ubuntu'
+                                title.Font = 'SourceSans'
                                 title.Name = '#title'
                                 title.Size = UDim2.new(1, 0, 1, -1)
                                 title.Text = 'blue'
@@ -2952,7 +2947,7 @@ do
                             
                             local val = Instance.new('TextLabel') do 
                                 val.BackgroundTransparency = 1
-                                val.Font = 'Ubuntu'
+                                val.Font = 'SourceSans'
                                 val.Name = '#val'
                                 val.Size = UDim2.new(1, 0, 1, -1)
                                 val.Text = '255'
@@ -3929,7 +3924,7 @@ do
                     pageSelector.AutoButtonColor = false
                     pageSelector.BackgroundColor3 = theme.Button1
                     pageSelector.BackgroundTransparency = 0
-                    pageSelector.Font = 'Ubuntu'
+                    pageSelector.Font = 'SourceSans'
                     pageSelector.Name = '#page-selector'
                     pageSelector.Size = UDim2.new(1, -8, 0, 20)
                     pageSelector.Text = ''
@@ -4255,7 +4250,7 @@ do
                     
                     local title = Instance.new('TextLabel') do 
                         title.BackgroundTransparency = 1
-                        title.Font = 'Ubuntu'
+                        title.Font = 'SourceSans'
                         title.Name = '#title'
                         title.RichText = true
                         title.Size = UDim2.fromScale(1, 1)
@@ -4471,7 +4466,7 @@ do
                         
                         local label = Instance.new('TextLabel') do 
                             label.BackgroundTransparency = 1
-                            label.Font = 'Ubuntu'
+                            label.Font = 'SourceSans'
                             label.Name = '#label'
                             label.RichText = true
                             label.Size = UDim2.fromScale(1, 1)
@@ -4788,7 +4783,7 @@ do
                             
                             local label = Instance.new('TextLabel') do 
                                 label.BackgroundTransparency = 1
-                                label.Font = 'Ubuntu'
+                                label.Font = 'SourceSans'
                                 label.Name = '#label'
                                 label.RichText = true
                                 label.Size = UDim2.fromScale(1, 1)
@@ -5011,7 +5006,7 @@ do
                                 
                                 local label = Instance.new('TextLabel') do 
                                     label.BackgroundTransparency = 1
-                                    label.Font = 'Ubuntu'
+                                    label.Font = 'SourceSans'
                                     label.Name = '#label'
                                     label.RichText = true
                                     label.Size = UDim2.fromScale(1, 1)
@@ -5165,7 +5160,7 @@ do
 
                 local label = Instance.new('TextLabel') do 
                     label.BackgroundTransparency = 1
-                    label.Font = 'Ubuntu'
+                    label.Font = 'SourceSans'
                     label.Name = '#label'
                     label.RichText = true
                     label.Size = UDim2.fromScale(1, 1)
@@ -5445,7 +5440,6 @@ do
         dropdown.maxVisible = 5
 
         dropdown.open = function(self)
-            self.instances.menu.Visible = true
             self.openState = true
             self:fireEvent('onOpen')
 
@@ -5487,10 +5481,7 @@ do
                 ImageColor3 = theme.Secondary
             }, 0.3, 1)
 
-            local menuTween = tween(self.instances.menu, {Size = UDim2.new(1, -6, 0, 0)}, 0.3, 1)
-            menuTween.Completed:Connect(function()
-                self.instances.menu.Visible = false
-            end)
+            tween(self.instances.menu, {Size = UDim2.new(1, -6, 0, 0)}, 0.3, 1)
             tween(self.instances.controlFrame, {Size = UDim2.new(1, 0, 0, 20)}, 0.3, 1)
         end
 
@@ -5680,9 +5671,10 @@ do
             end
             return new
         end
-
-        elemClasses.dropdown = dropdown
     end
+    -- add class
+    elemClasses.dropdown = dropdown
+end
 
     -- SLIDER
     do 
@@ -5768,7 +5760,7 @@ do
                             inputBox.BackgroundTransparency = 0.1
                             inputBox.ClearTextOnFocus = true
                             inputBox.ClipsDescendants = true
-                            inputBox.Font = 'Ubuntu'
+                            inputBox.Font = 'SourceSans'
                             inputBox.Name = '#input-box'
                             inputBox.PlaceholderColor3 = theme.TextDim
                             inputBox.PlaceholderText = 'enter value'
@@ -5807,7 +5799,7 @@ do
                     
                     local title = Instance.new('TextLabel') do 
                         title.BackgroundTransparency = 1
-                        title.Font = 'Ubuntu'
+                        title.Font = 'SourceSans'
                         title.Name = '#label'
                         title.Size = UDim2.fromScale(1, 1)
                         title.Text = 'slider'
@@ -5833,7 +5825,7 @@ do
                     
                     local val = Instance.new('TextLabel') do 
                         val.BackgroundTransparency = 1
-                        val.Font = 'Ubuntu'
+                        val.Font = 'SourceSans'
                         val.Name = '#val'
                         val.Size = UDim2.fromScale(1, 1)
                         val.Text = '0'
@@ -6111,7 +6103,7 @@ do
                         
                         local label = Instance.new('TextLabel') do 
                             label.BackgroundTransparency = 1
-                            label.Font = 'Ubuntu'
+                            label.Font = 'SourceSans'
                             label.Name = '#label'
                             label.RichText = true
                             label.Size = UDim2.fromScale(1, 1)
@@ -6487,7 +6479,7 @@ do
                         inputBox.BackgroundTransparency = 0
                         inputBox.ClearTextOnFocus = true
                         inputBox.ClipsDescendants = true
-                        inputBox.Font = 'Ubuntu'
+                        inputBox.Font = 'SourceSans'
                         inputBox.Name = '#textbox'
                         inputBox.PlaceholderColor3 = theme.TextDim
                         inputBox.PlaceholderText = '...'
@@ -6533,7 +6525,7 @@ do
                         
                         local autoFill = Instance.new('TextLabel') do 
                             autoFill.BackgroundTransparency = 1
-                            autoFill.Font = 'Ubuntu'
+                            autoFill.Font = 'SourceSans'
                             autoFill.Name = '#autofill'
                             autoFill.Size = UDim2.fromScale(1, 1)
                             autoFill.Text = 'autofill'
@@ -7040,7 +7032,7 @@ do
                         local title = Instance.new('TextLabel') do 
                             title.BackgroundTransparency = 1
                             title.BorderSizePixel = 0
-                            title.Font = 'Ubuntu'
+                            title.Font = 'SourceSans'
                             title.Name = '#title'
                             title.Position = UDim2.fromOffset(24, 0)
                             title.RichText = true
@@ -7086,7 +7078,7 @@ do
                         local desc = Instance.new('TextLabel') do 
                             desc.BackgroundTransparency = 1
                             desc.BorderSizePixel = 0
-                            desc.Font = 'Ubuntu'
+                            desc.Font = 'SourceSans'
                             desc.Name = '#desc'
                             desc.RichText = true
                             desc.Size = UDim2.fromScale(1, 1)
@@ -7219,263 +7211,470 @@ do
         elemClasses.notif = notif
     end
         
-    -- HOTKEY
-    do 
-        local hotkey = {} do 
-            hotkey.__index = hotkey
-            setmetatable(hotkey, elemClasses.baseElement)
-            
-            hotkey.class = 'hotkey'
-            
-            do
-                local instances = {} do 
-                    local controlFrame = Instance.new('Frame')
-                    controlFrame.BackgroundTransparency = 1
-                    controlFrame.Name = '#control'
-                    controlFrame.Size = UDim2.new(1, 0, 0, 20)
-                    controlFrame.Visible = true
-                    controlFrame.ZIndex = 34
-                    
-                    instances.controlFrame = controlFrame
+ 	-- HOTKEY
+	do
+		local hotkey = {} do
+			hotkey.__index = hotkey
+			setmetatable(hotkey, elemClasses.baseElement)
 
-                    local back = Instance.new('TextButton') do 
-                        back.BackgroundTransparency = 1
-                        back.Name = '#back'
-                        back.Size = UDim2.fromScale(1, 1)
-                        back.Text = ''
-                        back.TextTransparency = 1
-                        back.ZIndex = 34
-                        
-                        back.Parent = controlFrame
-                        
-                        local label = Instance.new('TextLabel') do 
-                            label.BackgroundTransparency = 1
-                            label.Font = 'Ubuntu'
-                            label.Name = '#label'
-                            label.RichText = true
-                            label.Size = UDim2.fromScale(1, 1)
-                            label.Text = 'button'
-                            label.TextColor3 = theme.TextPrimary
-                            label.TextSize = 14
-                            label.TextStrokeColor3 = theme.TextStroke
-                            label.TextStrokeTransparency = 0.8
-                            label.TextTransparency = 0
-                            label.TextWrapped = false
-                            label.TextXAlignment = 'Left'
-                            label.TextYAlignment = 'Center'
-                            label.Visible = true
-                            label.ZIndex = 35
-                            
-                            label.Parent = back
-                            
-                            local padding = Instance.new('UIPadding') do 
-                                padding.Name = '#padding'
-                                padding.PaddingLeft = UDim.new(0, 6)
-                                
-                                padding.Parent = label
-                            end
-                        end
-                        
-                        local hotkey = Instance.new('TextLabel') do 
-                            hotkey.Active = false
-                            hotkey.AnchorPoint = Vector2.new(1, 0)
-                            hotkey.BackgroundTransparency = 1 
-                            hotkey.Font = 'Ubuntu'
-                            hotkey.Name = '#hotkey'
-                            hotkey.Position = UDim2.new(1, -3, 0, 2)
-                            hotkey.Size = UDim2.fromOffset(16, 16)
-                            hotkey.Text = '[None]'
-                            hotkey.TextColor3 = theme.TextDim
-                            hotkey.TextScaled = false
-                            hotkey.TextSize = 14
-                            hotkey.TextStrokeColor3 = theme.TextStroke
-                            hotkey.TextStrokeTransparency = 0.8
-                            hotkey.TextWrapped = false 
-                            hotkey.TextXAlignment = 'Right'
-                            hotkey.TextYAlignment = 'Center'
-                            hotkey.Visible = true
-                            hotkey.ZIndex = 35
-                            
-                            hotkey.Parent = back
-                        end
-                    end
-                end
-                hotkey.instances = instances 
-            end
-            
-            hotkey.set = nil
-            hotkey.hotkey = nil 
-            hotkey.focused = false
-            hotkey.inputCon = nil 
-            hotkey.click = function(self) 
-                if (self.inputCon) then return end 
-                
-                local display = self.instances.hotkey 
-                
-                tween(display, {TextColor3 = theme.Primary}, 0.3, 1)
-                self.inputCon = inputService.InputBegan:Connect(function(io, gpe) 
-                    local kc = io.KeyCode.Name
-                    if (kc == 'Unknown' or kc == 'Escape') then 
-                        self.hotkey = nil
-                        display.Text = '[None]'
-                        self.inputCon:Disconnect()
-                        self.inputCon = nil 
-                        
-                        if (self.focused) then 
-                            tween(display, {TextColor3 = theme.TextPrimary}, 0.3, 1)
-                        else
-                            tween(display, {TextColor3 = theme.TextDim}, 0.3, 1)
-                        end
-                    else 
-                        self.hotkey = io.KeyCode
-                        self.set = time()
-                        display.Text = ('[%s]'):format(kc)
-                        self.inputCon:Disconnect()
-                        self.inputCon = nil 
-                        
-                        if (self.focused) then 
-                            tween(display, {TextColor3 = theme.TextPrimary}, 0.3, 1)
-                        else
-                            tween(display, {TextColor3 = theme.TextDim}, 0.3, 1)
-                        end
-                    end
-                end)
-                
-                return self
-            end
-            hotkey.__hotkeyFunc = hotkey.click
-            
-            hotkey.signals = {
-                back = {
-                    MouseEnter = function(inst, self) 
-                        self.focused = true
-                        self:showTooltip()
+			hotkey.class = 'hotkey'
 
-                        if (self.inputCon) then 
-                            tween(self.instances.hotkey, {TextColor3 = theme.Primary}, 0.2, 1)
-                        else 
-                            tween(self.instances.hotkey, {TextColor3 = theme.TextPrimary}, 0.2, 1)
-                        end
-                    end,
-                    MouseLeave = function(inst, self) 
-                        self.focused = false
-                        self:hideTooltip()
-                        
-                        if (self.inputCon) then 
-                            tween(self.instances.hotkey, {TextColor3 = theme.Primary}, 0.2, 1)
-                        else
-                            tween(self.instances.hotkey, {TextColor3 = theme.TextDim}, 0.2, 1)
-                        end
-                    end,
-                    MouseButton1Click = function(inst, self) 
-                        self:click()
-                    end
-                }
-            }
-            
-            hotkey.new = function(self) 
-                
-                local new = setmetatable({}, self)
-                new.binds = {}
-                
-                local instances = {}
-                instances.controlFrame = self.instances.controlFrame:Clone()
-                instances.back = instances.controlFrame['#back']
-                instances.label = instances.back['#label']
-                instances.hotkey = instances.back['#hotkey']
-                
-                for i, signals in pairs(self.signals) do 
-                    local inst = instances[i]
-                    for signal, func in pairs(signals) do
-                        local h = inst[signal]:Connect(function() 
-                            func(inst, new)
-                        end)
-                    end
-                end
-                
-                table.insert(ui.hotkeys, new)
-                
-                
-                new.instances = instances
-                return new
-            end
-            
-            --[[
-            hotkey.fireHotkey = function(self, ...) 
-                return self:__hotkeyFunc()
-            end]]
-            
-            hotkey.linkToControl = function(self, control) 
-                if (control and control.__hotkeyFunc == nil) then
-                    return error('couldn\'t find control function', 2)
-                elseif (not control) then 
-                    control = nil 
-                end
-                
-                self.linkedControl = control 
-                return self
-            end
-            
-            hotkey.setHotkey = function(self, hotkey) 
-                if (hotkey) then 
-                    if (typeof(hotkey) == 'EnumItem') then
-                        if (hotkey.EnumType ~= Enum.KeyCode) then
-                            return error('expected EnumItem of EnumType KeyCode for hotkey', 2) 
-                        end
-                    else
-                        if (Enum.KeyCode[hotkey]) then
-                            hotkey = Enum.KeyCode[hotkey]
-                        else
-                            return error('expected valid Enum.KeyCode Name, or Enum.KeyCode EnumItem', 2)  
-                        end
-                    end
-                    
-                    self.hotkey = hotkey 
-                    self.instances.hotkey.Text = ('[%s]'):format(hotkey.Name)
-                else
-                    self.hotkey = nil
-                    self.instances.hotkey.Text = '[None]'
-                end
-            end
-            hotkey.getHotkey = function(self) return self.hotkey end 
-            
-            elemClasses.section.addHotkey = function(self, settings) 
-                if (not typeof(settings) == 'table') then
-                    return error('expected type table for settings', 2) 
-                end
-                
-                local s_title = settings.text or 'nil'
-                local s_bind = settings.bind or nil
-                
-                if (s_bind) then 
-                    if (typeof(s_bind) == 'EnumItem') then
-                        if (s_bind.EnumType ~= Enum.KeyCode) then
-                            return error('expected EnumItem of EnumType KeyCode for settings.bind', 2) 
-                        end
-                    else
-                        if (Enum.KeyCode[s_bind]) then
-                            s_bind = Enum.KeyCode[s_bind]
-                        else
-                            return error('expected valid Enum.KeyCode Name, or Enum.KeyCode EnumItem', 2)  
-                        end
-                    end
-                end
-                
-                local hotkey = hotkey:new()
-                hotkey.section = self 
-                hotkey.name = s_title
-                table.insert(self.controls, hotkey)
-                
-                hotkey.instances.label.Text = s_title
-                if (s_bind) then 
-                    hotkey:setBind(s_bind)
-                end
-                hotkey.instances.controlFrame.Parent = self.instances.controlMenu
-                return hotkey
-            end
-        end
-        elemClasses.hotkey = hotkey
-    end    
+			do
+				local instances = {} do
+					local controlFrame = Instance.new('Frame')
+					controlFrame.BackgroundTransparency = 1
+					controlFrame.Name = '#control'
+					controlFrame.Size = UDim2.new(1, 0, 0, 20)
+					controlFrame.Visible = true
+					controlFrame.ZIndex = 34
+
+					instances.controlFrame = controlFrame
+
+					local back = Instance.new('TextButton') do
+						back.BackgroundTransparency = 1
+						back.Name = '#back'
+						back.Size = UDim2.fromScale(1, 1)
+						back.Text = ''
+						back.TextTransparency = 1
+						back.ZIndex = 34
+
+						back.Parent = controlFrame
+
+						local label = Instance.new('TextLabel') do
+							label.BackgroundTransparency = 1
+							label.Font = 'Ubuntu'
+							label.Name = '#label'
+							label.RichText = true
+							label.Size = UDim2.fromScale(1, 1)
+							label.Text = 'button'
+							label.TextColor3 = theme.TextPrimary
+							label.TextSize = 14
+							label.TextStrokeColor3 = theme.TextStroke
+							label.TextStrokeTransparency = 0.8
+							label.TextTransparency = 0
+							label.TextWrapped = false
+							label.TextXAlignment = 'Left'
+							label.TextYAlignment = 'Center'
+							label.Visible = true
+							label.ZIndex = 35
+
+							label.Parent = back
+
+							local padding = Instance.new('UIPadding') do
+								padding.Name = '#padding'
+								padding.PaddingLeft = UDim.new(0, 6)
+
+								padding.Parent = label
+							end
+						end
+
+						local hotkeyLabel = Instance.new('TextLabel') do
+							hotkeyLabel.Active = false
+							hotkeyLabel.AnchorPoint = Vector2.new(1, 0)
+							hotkeyLabel.BackgroundTransparency = 1
+							hotkeyLabel.Font = 'Ubuntu'
+							hotkeyLabel.Name = '#hotkey'
+							hotkeyLabel.Position = UDim2.new(1, -3, 0, 2)
+							hotkeyLabel.Size = UDim2.fromOffset(16, 16)
+							hotkeyLabel.Text = '[None]'
+							hotkeyLabel.TextColor3 = theme.TextDim
+							hotkeyLabel.TextScaled = false
+							hotkeyLabel.TextSize = 14
+							hotkeyLabel.TextStrokeColor3 = theme.TextStroke
+							hotkeyLabel.TextStrokeTransparency = 0.8
+							hotkeyLabel.TextWrapped = false
+							hotkeyLabel.TextXAlignment = 'Right'
+							hotkeyLabel.TextYAlignment = 'Center'
+							hotkeyLabel.Visible = true
+							hotkeyLabel.ZIndex = 35
+
+							hotkeyLabel.Parent = back
+						end
+					end
+
+					-- mode context menu
+					local modeMenu = Instance.new('Frame') do
+						modeMenu.BackgroundColor3 = theme.Window3
+						modeMenu.BorderColor3 = theme.Inset3
+						modeMenu.BorderMode = 'Inset'
+						modeMenu.BorderSizePixel = 1
+						modeMenu.ClipsDescendants = true
+						modeMenu.Name = '#mode-menu'
+						modeMenu.Position = UDim2.new(1, -60, 0, 20)
+						modeMenu.Size = UDim2.fromOffset(56, 0)
+						modeMenu.Visible = false
+						modeMenu.ZIndex = 80
+
+						modeMenu.Parent = controlFrame
+
+						local round = Instance.new('UICorner') do
+							round.CornerRadius = UDim.new(0, rounding and 2 or 0)
+							round.Name = '#round'
+
+							round.Parent = modeMenu
+						end
+
+						local stroke = Instance.new('UIStroke') do
+							stroke.ApplyStrokeMode = 'Border'
+							stroke.Color = theme.Stroke
+							stroke.LineJoinMode = 'Round'
+							stroke.Name = '#stroke'
+							stroke.Thickness = 1
+
+							stroke.Parent = modeMenu
+						end
+
+						local container = Instance.new('Frame') do
+							container.BackgroundTransparency = 1
+							container.Name = '#container'
+							container.Size = UDim2.fromScale(1, 1)
+							container.Visible = true
+							container.ZIndex = 81
+
+							container.Parent = modeMenu
+
+							local layout = Instance.new('UIListLayout') do
+								layout.FillDirection = 'Vertical'
+								layout.HorizontalAlignment = 'Center'
+								layout.Name = '#layout'
+								layout.Padding = UDim.new(0, 1)
+								layout.SortOrder = 'LayoutOrder'
+								layout.VerticalAlignment = 'Top'
+
+								layout.Parent = container
+							end
+
+							local padding = Instance.new('UIPadding') do
+								padding.Name = '#padding'
+								padding.PaddingTop = UDim.new(0, 2)
+								padding.PaddingBottom = UDim.new(0, 2)
+
+								padding.Parent = container
+							end
+						end
+
+						-- mode option template
+						local modeOption = Instance.new('TextButton') do
+							modeOption.AutoButtonColor = false
+							modeOption.BackgroundColor3 = theme.Button1
+							modeOption.BackgroundTransparency = 1
+							modeOption.Font = 'Ubuntu'
+							modeOption.Name = '#mode-option'
+							modeOption.Size = UDim2.new(1, -4, 0, 14)
+							modeOption.Text = 'mode'
+							modeOption.TextColor3 = theme.TextPrimary
+							modeOption.TextSize = 12
+							modeOption.TextStrokeColor3 = theme.TextStroke
+							modeOption.TextStrokeTransparency = 0.8
+							modeOption.TextWrapped = false
+							modeOption.TextXAlignment = 'Center'
+							modeOption.TextYAlignment = 'Center'
+							modeOption.Visible = false
+							modeOption.ZIndex = 82
+
+							modeOption.Parent = container
+
+							local round = Instance.new('UICorner') do
+								round.CornerRadius = UDim.new(0, rounding and 2 or 0)
+								round.Name = '#round'
+
+								round.Parent = modeOption
+							end
+						end
+
+						instances.modeOption = modeOption
+					end
+				end
+				hotkey.instances = instances
+			end
+
+			hotkey.set = nil
+			hotkey.hotkey = nil
+			hotkey.focused = false
+			hotkey.inputCon = nil
+			hotkey.holdCon = nil
+			hotkey.mode = 'Toggle'
+			hotkey.modeMenuOpen = false
+			hotkey.alwaysActive = false
+
+			hotkey.click = function(self)
+				if (self.inputCon) then return end
+
+				local display = self.instances.hotkey
+
+				tween(display, {TextColor3 = theme.Primary}, 0.3, 1)
+				self.inputCon = inputService.InputBegan:Connect(function(io, gpe)
+					local kc = io.KeyCode.Name
+					local inputType = io.UserInputType.Name
+
+					if (inputType == 'MouseButton2' and kc == 'Unknown') then
+						self.hotkey = Enum.UserInputType.MouseButton2
+						self.set = time()
+						display.Text = '[RMB]'
+						self.inputCon:Disconnect()
+						self.inputCon = nil
+
+						if (self.focused) then
+							tween(display, {TextColor3 = theme.TextPrimary}, 0.3, 1)
+						else
+							tween(display, {TextColor3 = theme.TextDim}, 0.3, 1)
+						end
+						return
+					end
+
+					if (kc == 'Unknown' or kc == 'Escape') then
+						self.hotkey = nil
+						display.Text = '[None]'
+						self.inputCon:Disconnect()
+						self.inputCon = nil
+
+						if (self.focused) then
+							tween(display, {TextColor3 = theme.TextPrimary}, 0.3, 1)
+						else
+							tween(display, {TextColor3 = theme.TextDim}, 0.3, 1)
+						end
+					else
+						self.hotkey = io.KeyCode
+						self.set = time()
+						display.Text = ('[%s]'):format(kc)
+						self.inputCon:Disconnect()
+						self.inputCon = nil
+
+						if (self.focused) then
+							tween(display, {TextColor3 = theme.TextPrimary}, 0.3, 1)
+						else
+							tween(display, {TextColor3 = theme.TextDim}, 0.3, 1)
+						end
+					end
+				end)
+
+				return self
+			end
+			hotkey.__hotkeyFunc = hotkey.click
+
+			hotkey.openModeMenu = function(self)
+				if (self.modeMenuOpen) then
+					self:closeModeMenu()
+					return
+				end
+				self.modeMenuOpen = true
+
+				local modeMenu = self.instances.modeMenu
+				modeMenu.Visible = true
+				tween(modeMenu, {Size = UDim2.fromOffset(56, 64)}, 0.2, 1)
+			end
+
+			hotkey.closeModeMenu = function(self)
+				self.modeMenuOpen = false
+
+				local modeMenu = self.instances.modeMenu
+				local menuTween = tween(modeMenu, {Size = UDim2.fromOffset(56, 0)}, 0.2, 1)
+				menuTween.Completed:Connect(function()
+					modeMenu.Visible = false
+				end)
+			end
+
+			hotkey.setMode = function(self, mode)
+				self.mode = mode
+
+				for _, optData in ipairs(self.modeInstances) do
+					if (optData.text == mode) then
+						optData.inst.TextColor3 = theme.Primary
+					else
+						optData.inst.TextColor3 = theme.TextPrimary
+					end
+				end
+
+				if (mode == 'Always') then
+					self.alwaysActive = true
+					local linkedControl = self.linkedControl
+					if (linkedControl and linkedControl.__hotkeyFunc) then
+						task.spawn(linkedControl.__hotkeyFunc, linkedControl)
+					end
+				else
+					self.alwaysActive = false
+				end
+
+				self:fireEvent('onModeChange', mode)
+				return self
+			end
+
+			hotkey.signals = {
+				back = {
+					MouseEnter = function(inst, self)
+						self.focused = true
+						self:showTooltip()
+
+						if (self.inputCon) then
+							tween(self.instances.hotkey, {TextColor3 = theme.Primary}, 0.2, 1)
+						else
+							tween(self.instances.hotkey, {TextColor3 = theme.TextPrimary}, 0.2, 1)
+						end
+					end,
+					MouseLeave = function(inst, self)
+						self.focused = false
+						self:hideTooltip()
+
+						if (self.inputCon) then
+							tween(self.instances.hotkey, {TextColor3 = theme.Primary}, 0.2, 1)
+						else
+							tween(self.instances.hotkey, {TextColor3 = theme.TextDim}, 0.2, 1)
+						end
+					end,
+					MouseButton1Click = function(inst, self)
+						if (self.modeMenuOpen) then
+							self:closeModeMenu()
+						end
+						self:click()
+					end,
+					MouseButton2Click = function(inst, self)
+						self:openModeMenu()
+					end
+				}
+			}
+
+			hotkey.new = function(self)
+				local new = setmetatable({}, self)
+				new.binds = {}
+				new.modeInstances = {}
+
+				local instances = {}
+				instances.controlFrame = self.instances.controlFrame:Clone()
+				instances.back = instances.controlFrame['#back']
+				instances.label = instances.back['#label']
+				instances.hotkey = instances.back['#hotkey']
+				instances.modeMenu = instances.controlFrame['#mode-menu']
+				instances.modeOption = instances.modeMenu['#container']['#mode-option']
+
+				for i, signals in pairs(self.signals) do
+					local inst = instances[i]
+					for signal, func in pairs(signals) do
+						local h = inst[signal]:Connect(function()
+							func(inst, new)
+						end)
+					end
+				end
+
+				-- create mode options
+				local modes = {'Toggle', 'Click', 'Hold', 'Always'}
+				for idx, mode in ipairs(modes) do
+					local opt = instances.modeOption:Clone()
+					opt.Name = '#mode-' .. mode:lower()
+					opt.Text = mode
+					opt.Visible = true
+					opt.LayoutOrder = idx
+					opt.Parent = instances.modeOption.Parent
+
+					if (mode == new.mode) then
+						opt.TextColor3 = theme.Primary
+					end
+
+					opt.MouseEnter:Connect(function()
+						tween(opt, {BackgroundTransparency = 0, BackgroundColor3 = theme.Button2}, 0.15, 1)
+					end)
+					opt.MouseLeave:Connect(function()
+						tween(opt, {BackgroundTransparency = 1}, 0.15, 1)
+					end)
+					opt.MouseButton1Click:Connect(function()
+						new:setMode(mode)
+						new:closeModeMenu()
+					end)
+
+					table.insert(new.modeInstances, {
+						text = mode,
+						inst = opt
+					})
+				end
+
+				table.insert(ui.hotkeys, new)
+
+				new.instances = instances
+				return new
+			end
+
+			hotkey.linkToControl = function(self, control)
+				if (control and control.__hotkeyFunc == nil) then
+					return error('couldn\'t find control function', 2)
+				elseif (not control) then
+					control = nil
+				end
+
+				self.linkedControl = control
+				return self
+			end
+
+			hotkey.setHotkey = function(self, hk)
+				if (hk) then
+					if (typeof(hk) == 'EnumItem') then
+						if (hk.EnumType == Enum.KeyCode) then
+							self.hotkey = hk
+							self.instances.hotkey.Text = ('[%s]'):format(hk.Name)
+						elseif (hk.EnumType == Enum.UserInputType) then
+							self.hotkey = hk
+							if (hk == Enum.UserInputType.MouseButton2) then
+								self.instances.hotkey.Text = '[RMB]'
+							else
+								self.instances.hotkey.Text = ('[%s]'):format(hk.Name)
+							end
+						else
+							return error('expected EnumItem of EnumType KeyCode or UserInputType for hotkey', 2)
+						end
+					else
+						if (Enum.KeyCode[hk]) then
+							self.hotkey = Enum.KeyCode[hk]
+							self.instances.hotkey.Text = ('[%s]'):format(hk)
+						else
+							return error('expected valid Enum.KeyCode Name, or Enum.KeyCode EnumItem', 2)
+						end
+					end
+				else
+					self.hotkey = nil
+					self.instances.hotkey.Text = '[None]'
+				end
+			end
+			hotkey.getHotkey = function(self) return self.hotkey end
+			hotkey.getMode = function(self) return self.mode end
+
+			elemClasses.section.addHotkey = function(self, settings)
+				if (not typeof(settings) == 'table') then
+					return error('expected type table for settings', 2)
+				end
+
+				local s_title = settings.text or 'nil'
+				local s_bind = settings.bind or nil
+				local s_mode = settings.mode or 'Toggle'
+
+				if (s_bind) then
+					if (typeof(s_bind) == 'EnumItem') then
+						if (s_bind.EnumType ~= Enum.KeyCode and s_bind.EnumType ~= Enum.UserInputType) then
+							return error('expected EnumItem of EnumType KeyCode or UserInputType for settings.bind', 2)
+						end
+					else
+						if (Enum.KeyCode[s_bind]) then
+							s_bind = Enum.KeyCode[s_bind]
+						else
+							return error('expected valid Enum.KeyCode Name, or Enum.KeyCode EnumItem', 2)
+						end
+					end
+				end
+
+				local hotkey = hotkey:new()
+				hotkey.section = self
+				hotkey.name = s_title
+				table.insert(self.controls, hotkey)
+
+				hotkey.instances.label.Text = s_title
+				if (s_bind) then
+					hotkey:setHotkey(s_bind)
+				end
+				if (s_mode ~= 'Toggle') then
+					hotkey:setMode(s_mode)
+				end
+				hotkey.instances.controlFrame.Parent = self.instances.controlMenu
+			return hotkey
+		end
+        lemClasses.hotkey = hotkey
+	end
 end
 
 do
@@ -7678,24 +7877,50 @@ do
     end
     
     -- hotkey handler
-    do 
-        local hotkeys = ui.hotkeys
-        ui.hkCon = inputService.InputBegan:Connect(function(io, gpe) 
-            if ((not gpe) and (io.UserInputType.Name == 'Keyboard')) then
-                local kc = io.KeyCode
-                
-                for i = 1, #hotkeys do 
-                    local hotkey = hotkeys[i]
-                    if (hotkey.hotkey == kc and hotkey.set ~= time()) then
-                        local linkedControl = hotkey.linkedControl
-                        if (linkedControl) then 
-                            task.spawn(linkedControl.__hotkeyFunc, linkedControl)
-                        end
-                    end
-                end 
-            end
-        end)
-    end
+	-- hotkey handler
+	do
+		local hotkeys = ui.hotkeys
+		ui.hkCon = inputService.InputBegan:Connect(function(io, gpe)
+			if (gpe) then return end
+
+			local isKeyboard = (io.UserInputType.Name == 'Keyboard')
+			local isRMB = (io.UserInputType == Enum.UserInputType.MouseButton2)
+
+			if (isKeyboard or isRMB) then
+				local matchValue = isRMB and Enum.UserInputType.MouseButton2 or io.KeyCode
+
+				for i = 1, #hotkeys do
+					local hk = hotkeys[i]
+					if (hk.hotkey == matchValue and hk.set ~= time()) then
+						local linkedControl = hk.linkedControl
+						if (linkedControl) then
+							local mode = hk.mode
+
+							if (mode == 'Toggle' or mode == 'Click') then
+								task.spawn(linkedControl.__hotkeyFunc, linkedControl)
+							elseif (mode == 'Hold') then
+								task.spawn(linkedControl.__hotkeyFunc, linkedControl)
+								if (hk.holdCon) then hk.holdCon:Disconnect() end
+								hk.holdCon = inputService.InputEnded:Connect(function(endIo)
+									local endMatch
+									if (isRMB) then
+										endMatch = (endIo.UserInputType == Enum.UserInputType.MouseButton2)
+									else
+										endMatch = (endIo.KeyCode == matchValue)
+									end
+									if (endMatch) then
+										hk.holdCon:Disconnect()
+										hk.holdCon = nil
+										task.spawn(linkedControl.__hotkeyFunc, linkedControl)
+									end
+								end)
+							end
+						end
+					end
+				end
+			end
+		end)
+	end
 end
 
 
