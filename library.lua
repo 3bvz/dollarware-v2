@@ -5671,10 +5671,9 @@ do
             end
             return new
         end
+
+        elemClasses.dropdown = dropdown
     end
-    -- add class
-    elemClasses.dropdown = dropdown
-end
 
     -- SLIDER
     do 
