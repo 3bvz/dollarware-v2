@@ -5445,6 +5445,7 @@ do
         dropdown.maxVisible = 5
 
         dropdown.open = function(self)
+            self.instances.menu.Visible = true
             self.openState = true
             self:fireEvent('onOpen')
 
@@ -5486,7 +5487,10 @@ do
                 ImageColor3 = theme.Secondary
             }, 0.3, 1)
 
-            tween(self.instances.menu, {Size = UDim2.new(1, -6, 0, 0)}, 0.3, 1)
+            local menuTween = tween(self.instances.menu, {Size = UDim2.new(1, -6, 0, 0)}, 0.3, 1)
+            menuTween.Completed:Connect(function()
+                self.instances.menu.Visible = false
+            end)
             tween(self.instances.controlFrame, {Size = UDim2.new(1, 0, 0, 20)}, 0.3, 1)
         end
 
