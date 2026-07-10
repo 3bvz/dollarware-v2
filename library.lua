@@ -10,7 +10,7 @@
 
 --[[
 features done:
-- dropdowns
+- dropdown
 ]]
 local inputService = game:GetService('UserInputService')
 local renderService = game:GetService('RunService')
